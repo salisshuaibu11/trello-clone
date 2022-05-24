@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import React, { createContext, useReducer, useContext } from "react";
 
 const AppStateContext = createContext<AppStateContextProps>({} as AppStateContextProps);
 
@@ -41,6 +41,8 @@ interface List {
 export interface AppState {
   lists: List[]
 }
+
+export const useAppState = () => useContext(AppStateContext)
 
 export const AppStateProvider = ({children}: React.PropsWithChildren<{}>) => {
   return (
